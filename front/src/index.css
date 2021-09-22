@@ -17,7 +17,8 @@
 
 body{
   font-family: Arial, Helvetica, sans-serif;
-  background: url("./img/background.jpg");
+  background-image: url("./img/background.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -70,6 +71,10 @@ h3{
   font-size: 2rem;
 }
 
+.top-row h4{
+  margin-top: 3px;
+}
+
 .content{
   padding: 2rem;
   width: 100%;
@@ -81,7 +86,7 @@ h3{
 
 .content p{
   font-size: .9rem;
-  margin-top: 1rem;    
+  margin-top: .5rem;    
 }
 
 .button{
@@ -102,11 +107,25 @@ h3{
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: fixed;
 }
 
 .title{
   height: 100%;
 }
+
+.title button{
+  padding: 10px;
+  margin: 1px;
+  background: transparent!important;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+
 
 .search-form{
   height: 100%;
@@ -119,6 +138,7 @@ h3{
   background: transparent!important;
   border: 1px solid white;
   border-radius: 5px;
+  color: white;
 }
 
 .search-form nav button{
@@ -128,7 +148,24 @@ h3{
   border: 1px solid white;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
 }
+
+.paragraph{
+  width: 500px;
+  margin: auto;
+  color: antiquewhite;
+  text-align: center;
+  padding: 30px;
+}
+
+.paragraph h2{
+  font-size: 28px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
 /* media queries */
 
 @media (max-width:1030px){
@@ -137,5 +174,12 @@ h3{
       justify-content: center;
       align-items: center;
       height: auto;
+  }
+
+  .title button{
+    border: none;
+  }
+  .title-btn{
+    display: none;
   }
 }
