@@ -14,12 +14,11 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
         <div className='container-nav'>
             <div className='title'>
                 <button
+                    className='btn'
                     onClick={e => getCurrentData(e)}
                 >
                     <FontAwesomeIcon icon={faMapMarkerAlt} title='Current Location Data' />
-                    <span className='title-btn'>
-                       {' '} Current Location Data
-                    </span>
+                    {' '} Current Location Data
                 </button>
             </div>
             <div className='search-form'>
@@ -30,6 +29,7 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
                         onChange={e => handleChage(e)}
                     />
                     <button
+                        className='btn'
                         onClick={e => onSearch(e, city)}
                     >
                         Search
