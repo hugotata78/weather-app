@@ -45,7 +45,7 @@ function App() {
         {current_data && <CardCurrentData data={current_data} />}
         {loading && <CardLoading />}
         {data_by_city && <CardDataCity data={data_by_city} />}
-        {error && <CardError />}
+        {error && !current_data && <CardError />}
       </div>
     </div>
   );

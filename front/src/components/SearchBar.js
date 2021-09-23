@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faMapMarkerAlt, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const SearchBar = ({ onSearch, getCurrentData }) => {
 
@@ -12,6 +12,12 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
 
     return (
         <div className='container-nav'>
+            <div className='icon-menu'>
+                <input type='checkbox' id='check'/>
+                <label for='check'>
+                <FontAwesomeIcon icon={faBars}/>
+                </label>
+            </div>
             <div className='title'>
                 <button
                     className='btn'
@@ -29,10 +35,10 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
                         onChange={e => handleChage(e)}
                     />
                     <button
-                        className='btn'
+                        className='btn-nav'
                         onClick={e => onSearch(e, city)}
                     >
-                        Search
+                        <FontAwesomeIcon icon={faSearch} title='search'/>
                     </button>
                 </nav>
             </div>

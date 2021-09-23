@@ -115,19 +115,16 @@ h3{
   position: fixed;
 }
 
+.menu{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
 .title{
   height: 100%;
-}
-
-.title button{
-  padding: 10px;
-  margin: 1px;
-  background: transparent!important;
-  border: 1px solid white;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: all .5s ease-in-out;
 }
 
 
@@ -136,15 +133,36 @@ h3{
   height: 100%;
 }
 
+.search-form nav{
+  width: 100%;
+  height: auto;
+  border: 1px solid white;
+  border-radius: 20px;
+}
 .search-form nav input{
   width: 150px;
   padding: 10px;
   margin: 1px;
   background: transparent!important;
-  border: 1px solid white;
-  border-radius: 5px;
+  border: none;
+  border-collapse: collapse;
   color: white;
+  outline: none;
 }
+
+
+
+.btn-nav{
+  padding: 10px;
+  margin: 1px;
+  background: transparent;
+  border-collapse: collapse;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
 
 .btn{
   padding: 10px;
@@ -157,9 +175,9 @@ h3{
   transition: all .3s ease-in-out;
 }
 
-/* .btn:hover{
+.btn:hover{
   background: rgb(6, 76, 78);
-} */
+} 
 
 .paragraph{
   width: 500px;
@@ -192,6 +210,10 @@ h3{
   animation: turn 1.5s linear infinite;
 }
 
+.icon-menu{
+  display: none;
+  height: 100%;
+}
 @keyframes turn {
   from{ transform: rotate(0deg);}
   to{ transform: rotate(360deg);}
@@ -206,12 +228,11 @@ h3{
       justify-content: center;
       align-items: center;
       height: auto;
+      
+  }
+  .container-nav{
+    margin-bottom: 200px;
   }
 
-  .title button{
-    border: none;
-  }
-  .title-btn{
-    display: none;
-  }
+  
 }
