@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='main'>
       <SearchBar onSearch={onSearch} getCurrentData={getCurrentData} />
       <div className="container">
         {!current_data && !data_by_city && !error && !loading && <Paragraph />}
