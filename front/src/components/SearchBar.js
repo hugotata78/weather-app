@@ -18,7 +18,7 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
                 >
                     <FontAwesomeIcon icon={faMapMarkerAlt} title='Current Location Data' />
                     <span className='title-btn'>
-                        Current Location Data
+                       {' '} Current Location Data
                     </span>
                 </button>
             </div>

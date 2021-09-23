@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar';
 import CardCurrentData from './components/CardCurrentData';
 import CardDataCity from './components/CardDataCity';
 import Paragraph from './components/Paragraph';
+import Swal from 'sweetalert2'
 
 function App() {
 
@@ -15,6 +16,17 @@ function App() {
 
   const onSearch = (e, city) => {
     e.preventDefault()
+    city === '' ?
+      Swal.fire('Enter data to make the query')
+      :
+      Swal.fire({
+        title: 'Please Wait !',
+        html: 'data uploading',// add html attribute if you want or remove
+        allowOutsideClick: false,
+        onBeforeOpen: () => {
+          Swal.showLoading()
+        },
+      });
     dispatch(getWeatherByCity(city))
   }
 
@@ -32,7 +44,7 @@ function App() {
   return (
     <div>
       <SearchBar onSearch={onSearch} getCurrentData={getCurrentData} />
-      <div class="container">
+      <div className="container">
         {!current_data && !data_by_city && <Paragraph />}
         {current_data && <CardCurrentData data={current_data} />}
         {data_by_city && <CardDataCity data={data_by_city} />}

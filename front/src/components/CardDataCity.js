@@ -7,14 +7,14 @@ const CardDataCity = ({ data }) => {
 
 
     return (
-        <div class="card">
+        <div className="card">
 
-            <div class="top-row background-top-row">
+            <div className="top-row background-top-row">
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 <h4> {data.name}</h4>
             </div>
 
-            <div class="content">
+            <div className="content">
                 <h2>Data</h2>
                 <p> Temp: {data.main.temp}</p>
                 <p> Pressure: {data.main.pressure}</p>
