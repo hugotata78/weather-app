@@ -24,6 +24,7 @@ function App() {
       Swal.fire('Enter data to make the query')
       :
       dispatch(getWeatherByCity(city))
+    e.target.value = ''
   }
 
 

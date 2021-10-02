@@ -12,12 +12,11 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
 
     return (
         <div className='navBar'>
-            <div className='icon-menu'>
-                <input type='checkbox' id='check' />
-                <label for='check'>
-                    <FontAwesomeIcon icon={faBars} />
-                </label>
-            </div>
+            
+            <button className='btn-menu'>
+                <FontAwesomeIcon icon={faBars} />
+            </button>
+
             <div className='nav-menu'>
                 <div className='title'>
                     <button

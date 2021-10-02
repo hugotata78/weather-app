@@ -29,7 +29,7 @@ const CardCurrentData = ({ data }) => {
                 <p>Visibility: {data.visibility}</p>
                 <p>Wind: speed {data.wind.speed}</p>
                 <button
-                 class="button background-top-row"
+                 className="button background-top-row"
                  onClick={e=>handleClick(e)}
                  >
                      Close

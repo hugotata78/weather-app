@@ -21,7 +21,7 @@ const CardError = () => {
                     <h3>Information not found</h3>
                 </div>
                 <button
-                    class="button background-top-row"
+                    className="button background-top-row"
                     onClick={e => handleClick(e)}
                 >
                     Close
