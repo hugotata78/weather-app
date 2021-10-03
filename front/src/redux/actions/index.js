@@ -7,6 +7,7 @@ export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
 export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR'
 export const RETURN_INITIAL_STATE = 'RETURN_INITIAL_STATE'
 
+
 export const getCurrentWeatherData = (lat,lon)=>{
     return async (dispatch)=>{
         try {
@@ -56,3 +57,4 @@ export const getWeatherByCity = (city)=>{
         }
     }
 }
+

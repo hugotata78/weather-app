@@ -1,30 +1,40 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faMapMarkerAlt, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHourglass, faHouseDamage, faHouseUser, faMapMarkerAlt, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from "react-redux";
+import { returnInitialState } from "../redux/actions";
 
 const SearchBar = ({ onSearch, getCurrentData }) => {
 
+    const dispatch = useDispatch()
     const [city, setCity] = useState('')
 
     const handleChage = (e) => {
         setCity(e.target.value)
     }
 
+    const handleOnClick = (e)=>{
+        e.preventDefault()
+        dispatch(returnInitialState())
+    }
     return (
         <div className='navBar'>
             
-            <button className='btn-menu'>
-                <FontAwesomeIcon icon={faBars} />
-            </button>
-
             <div className='nav-menu'>
                 <div className='title'>
+                    <button
+                        className='btn'
+                        onClick={e => handleOnClick(e) }
+                    >
+                        <FontAwesomeIcon icon={faHouseUser} title='Current Location Data' />
+                        <span className='text-menu'>Home</span>
+                    </button>
                     <button
                         className='btn'
                         onClick={e => getCurrentData(e)}
                     >
                         <FontAwesomeIcon icon={faMapMarkerAlt} title='Current Location Data' />
-                        {' '} Current Location Data
+                        <span className='text-menu'> Current Location Data</span>
                     </button>
                 </div>
                 <div className='search-form'>

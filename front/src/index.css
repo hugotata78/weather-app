@@ -17,9 +17,10 @@
 
 body{
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("./img/background.jpg");
+  background-image: url("./img/background_weatherapp.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 h3{
@@ -30,13 +31,16 @@ h3{
 .main{
   display: flex;
   flex-direction: column;
+  height: auto;
+  max-height: 600px;
 }
 .container{
   display: flex;
   justify-content: center;
-  height: 100vh;
   align-items: center;
-  margin-top: 100px;
+  height: 100vh;
+  top:0;
+  left: 0;
 }
 
 .card{
@@ -116,7 +120,7 @@ h3{
   height: 100px;
   background-color: transparent!important;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
   position: fixed;
@@ -136,6 +140,7 @@ h3{
 
 .search-form{
   height: 100%;
+  padding: auto;
 }
 
 .search-form nav{
@@ -172,7 +177,7 @@ h3{
 
 .btn{
   padding: 10px;
-  margin: 1px;
+  margin: 1px 2px;
   background: transparent;
   border: 1px solid white;
   border-radius: 5px;
@@ -219,15 +224,6 @@ h3{
 }
 
 
-.btn-menu{
-  display: none;
-  cursor: pointer;
-}
-
-.btn-menu:active ~ .nav-menu{
-  transform: translateX(0%);
-}
-
 @keyframes turn {
   from{ transform: rotate(0deg);}
   to{ transform: rotate(360deg);}
@@ -235,24 +231,30 @@ h3{
 
 
 /* media queries */
-
+@media (max-width:1024){
+  .container{
+    margin-top: 150px;
+    margin-bottom: 150;
+  }
+}
 @media (max-width:550px){
   .container{
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       height: auto;
+      margin-top: 150px;
+      margin-bottom: 150px;
   }
-
-  .nav-menu{
-    flex-direction: column;
+  .card{
+    margin: .5rem;
   }
-
-  .btn{
-    width: 15rem;
-    margin-bottom: 10px;
+  .text-menu{
+    display: none;
   }
-  .search-form{
-    width: 15rem;
+  
+  .search-form nav input{
+    width: auto;
+    max-width: 100px;
   }
-
 }

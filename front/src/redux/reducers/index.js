@@ -4,6 +4,7 @@ const initialState = {
     current_data:null,
     data_by_city:null,
     error: false,
+    extended_forecast:null,
     loading:false,
 }
 
@@ -43,6 +44,7 @@ const weatherReducers = (state=initialState,action)=>{
                 error:false,
                 loading:false  
             }
+        
         default:
             return state
     }
