@@ -22,7 +22,10 @@ const CardDataCity = ({ data }) => {
             </div>
 
             <div className="content">
-                <h2>Data</h2>
+                <div className='weather'>
+                    <h3>{data.weather[0].description}</h3>
+                    <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt='img'/>
+                </div>
                 <p> Temp: {data.main.temp}</p>
                 <p> Pressure: {data.main.pressure}</p>
                 <p>Humidity: {data.main.humidity}</p>
@@ -30,7 +33,7 @@ const CardDataCity = ({ data }) => {
                 <p>Wind: speed {data.wind.speed}</p>
                 <button
                     className="button background-top-row"
-                    onClick={e=>handleClick(e)}
+                    onClick={e => handleClick(e)}
                 >
                     Close
                 </button>

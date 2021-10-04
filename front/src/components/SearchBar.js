@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faHourglass, faHouseDamage, faHouseUser, faMapMarkerAlt, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faHouseUser, faMapMarkerAlt, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from "react-redux";
 import { returnInitialState } from "../redux/actions";
 
