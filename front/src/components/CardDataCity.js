@@ -24,7 +24,7 @@ const CardDataCity = ({ data }) => {
             <div className="content">
                 <div className='weather'>
                     <h3>{data.weather[0].description}</h3>
-                    <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt='img'/>
+                    <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt={data.weather[0].description}/>
                 </div>
                 <p> Temp: {data.main.temp}</p>
                 <p> Pressure: {data.main.pressure}</p>
