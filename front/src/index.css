@@ -23,10 +23,6 @@ body{
   height: 100%;
 }
 
-h3{
-  margin: 20px auto;
-  color: antiquewhite;
-}
 
 .main{
   display: flex;
@@ -69,6 +65,11 @@ h3{
   margin: auto;
   text-align: center;
   text-transform: capitalize;
+}
+
+.card .weather img{
+  padding: 0;
+  margin: 0;
 }
 
 .top-row{
@@ -263,5 +264,11 @@ h3{
   .search-form nav input{
     width: auto;
     max-width: 130px;
+  }
+}
+@media (max-width:300px){
+  .search-form nav input{
+    width: auto;
+    max-width: 100px;
   }
 }
