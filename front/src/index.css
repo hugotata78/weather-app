@@ -193,6 +193,10 @@ body{
   background: rgb(6, 76, 78);
 } 
 
+.text-menu{
+  margin: 0 5px;
+}
+
 .paragraph{
   width: 100%;
   max-width: 500px;

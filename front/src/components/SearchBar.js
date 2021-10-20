@@ -16,6 +16,7 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
     const handleOnClick = (e)=>{
         e.preventDefault()
         dispatch(returnInitialState())
+        setCity('')
     }
     return (
         <div className='navBar'>
@@ -40,9 +41,10 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
                 <div className='search-form'>
                     <nav>
                         <input
-                            type='search'
+                            type='text'
                             placeholder='Search'
                             onChange={e => handleChage(e)}
+                            value={city}
                         />
                         <button
                             className='btn-nav'
