@@ -18,7 +18,7 @@ const CardCurrentData = ({ data }) => {
 
             <div className="top-row background-top-row">
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
-                <h4> {data.name}</h4>
+                <h4> {data.name} {data.sys.country}</h4>
             </div>
 
             <div className="content">

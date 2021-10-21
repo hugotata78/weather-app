@@ -212,6 +212,10 @@ body{
   padding: 5px;
 }
 
+.error{
+  padding: 20px;
+}
+
 .content-loading{
   padding: 2rem;
   width: 100%;

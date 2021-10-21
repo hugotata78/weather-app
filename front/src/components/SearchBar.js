@@ -41,7 +41,7 @@ const SearchBar = ({ onSearch, getCurrentData }) => {
                 <div className='search-form'>
                     <nav>
                         <input
-                            type='text'
+                            type='search'
                             placeholder='Search'
                             onChange={e => handleChage(e)}
                             value={city}
