@@ -1,56 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouseUser, faMapMarkerAlt, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { useDispatch } from "react-redux";
-import { returnInitialState } from "../redux/actions";
+import { useTranslation } from 'react-i18next'
 
-const SearchBar = ({ onSearch, getCurrentData }) => {
+const SearchBar = ({ onSearch, getInfoMyLocation,handleChage, handleOnClick }) => {
 
-    const dispatch = useDispatch()
-    const [city, setCity] = useState('')
-
-    const handleChage = (e) => {
-        setCity(e.target.value)
-    }
-
-    const handleOnClick = (e)=>{
-        e.preventDefault()
-        dispatch(returnInitialState())
-        setCity('')
-    }
+    const [t,i18n] = useTranslation(['searchbar'])    
+   
+    
     return (
         <div className='navBar'>
-            
+
             <div className='nav-menu'>
                 <div className='title'>
                     <button
                         className='btn'
-                        onClick={e => handleOnClick(e) }
+                        onClick={e => handleOnClick(e)}
                     >
-                        <FontAwesomeIcon icon={faHouseUser} title='Current Location Data' />
-                        <span className='text-menu'>Home</span>
+                        <FontAwesomeIcon icon={faHouseUser} title={t('home')} />
+                        <span className='text-menu'>{t('home')}</span>
                     </button>
                     <button
                         className='btn'
-                        onClick={e => getCurrentData(e)}
+                        onClick={getInfoMyLocation}
                     >
-                        <FontAwesomeIcon icon={faMapMarkerAlt} title='Current Location Data' />
-                        <span className='text-menu'> Current Location Data</span>
+                        <FontAwesomeIcon icon={faMapMarkerAlt} title={t('current')} />
+                        <span className='text-menu'>{t('current')}</span>
                     </button>
                 </div>
                 <div className='search-form'>
                     <nav>
                         <input
                             type='search'
-                            placeholder='Search'
+                            placeholder={t('search')}
                             onChange={e => handleChage(e)}
-                            value={city}
                         />
                         <button
                             className='btn-nav'
-                            onClick={e => onSearch(e, city)}
+                            onClick={e => onSearch(e)}
                         >
-                            <FontAwesomeIcon icon={faSearch} title='search' />
+                            <FontAwesomeIcon icon={faSearch} title={t('search')} />
                         </button>
                     </nav>
                 </div>

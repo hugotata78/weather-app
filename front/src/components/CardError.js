@@ -1,13 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { returnInitialState } from '../redux/actions'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from "react-router";
 
 const CardError = () => {
 
-    const dispatch = useDispatch()
+    const [t] = useTranslation(['error'])
+    const history = useHistory()
+    
     const handleClick = e => {
         e.preventDefault()
-        dispatch(returnInitialState())
+        history.push('/')
     }
     return (
         <div className='card'>
@@ -17,14 +19,14 @@ const CardError = () => {
             </div>
             <div className='content'>
                 <div className='error'>
-                    <h2>Ops! </h2>
-                    <h3>Information not found</h3>
+                    <h2>{t('ops')}</h2>
+                    <h3>{t('msg')}</h3>
                 </div>
                 <button
                     className="button background-top-row"
                     onClick={e => handleClick(e)}
                 >
-                    Close
+                    {t('close')}
                 </button>
             </div>
         </div>

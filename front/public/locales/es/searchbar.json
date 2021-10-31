@@ -1,0 +1,9 @@
+{
+    "home": "Inicio",
+    "current": "Datos Ubicación Actual",
+    "search":"Buscar... ",
+    "spanish":"Español",
+    "english":"Inglés",
+    "languages":"Idiomas",
+    "msg-error":"Ingrese datos para realizar la consulta"
+}

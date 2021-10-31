@@ -13,6 +13,7 @@ const weatherReducers = (state=initialState,action)=>{
         case GET_CURRENT_WEATHER_DATA:
             return{
                 ...state,
+                loading:false,
                 current_data:action.payload,
                 data_by_city:null
             }

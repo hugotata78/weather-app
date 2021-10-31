@@ -1,54 +1,96 @@
 
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentWeatherData, getWeatherByCity } from './redux/actions';
 import SearchBar from './components/SearchBar';
-import CardCurrentData from './components/CardCurrentData';
-import CardDataCity from './components/CardDataCity';
 import Paragraph from './components/Paragraph';
 import Swal from 'sweetalert2'
-import CardLoading from './components/CardLoading';
-import CardError from './components/CardError';
+import { Suspense, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Languages } from './components/Languages';
+import { Route, Switch, useHistory } from 'react-router';
+import { ContainerCity } from './page/containerCity';
+import { ContainerCurrentData } from './page/containerCurrentdata';
 
-function App() {
 
-  const dispatch = useDispatch()
-  const current_data = useSelector(state => state.weatherReducers.current_data)
-  const data_by_city = useSelector(state => state.weatherReducers.data_by_city)
-  const error = useSelector(state => state.weatherReducers.error)
-  const loading = useSelector(state => state.weatherReducers.loading)
 
-  const onSearch = (e, city) => {
+const ContainerApp = () => {
+
+  const [t, i18n] = useTranslation(['searchbar'])
+  const [city, setCity] = useState('')
+  const history = useHistory()
+
+  const home = '/' || '/?lang=es' || '/?lang=en'
+  const myLocation = '/my-location' || '/my-location?lang=es' || '/my-location?lang=en'
+  const nameCity = '/:city' || '/:city?lang=es' || '/:city?lang=en'
+
+  const handleChage = (e) => {
+    setCity(e.target.value)
+  }
+
+  const onSearch = (e) => {
     e.preventDefault()
-    city === '' ?
-      Swal.fire('Enter data to make the query')
-      :
-      dispatch(getWeatherByCity(city))
-    e.target.value = ''
+    if (city === '') {
+      Swal.fire(t('msg-error'))
+    } else {
+      history.push(`/${city}`)
+    }
   }
 
 
-  const getLocation = position => {
-    const { latitude, longitude } = position.coords
-    dispatch(getCurrentWeatherData(latitude, longitude))
+  const getInfoMyLocation = () => {
+    history.push('/my-location')
   }
 
-  const getCurrentData = (e) => {
+
+  const handleOnClick = (e) => {
     e.preventDefault()
-    navigator.geolocation.getCurrentPosition(getLocation)
+    history.push('/')
+    i18n.changeLanguage('es')
+  }
+
+  
+
+  const handleOnClickEs = (e) => {
+    e.preventDefault()
+    i18n.changeLanguage('es')
+    history.push(`${window.location.pathname}?lang=es`)
+  }
+
+  const handleOnClickEn = (e) => {
+    e.preventDefault()
+    i18n.changeLanguage('en')
+    history.push(`${window.location.pathname}?lang=en`)
   }
 
   return (
+
     <div className='main'>
-      <SearchBar onSearch={onSearch} getCurrentData={getCurrentData} />
+      <SearchBar
+        onSearch={onSearch}
+        getInfoMyLocation={getInfoMyLocation}
+        handleChage={handleChage}
+        handleOnClick={handleOnClick}
+      />
       <div className="container">
-        {!current_data && !data_by_city && !error && !loading && <Paragraph />}
-        {current_data && <CardCurrentData data={current_data} />}
-        {loading && <CardLoading />}
-        {data_by_city && <CardDataCity data={data_by_city} />}
-        {error && !current_data && <CardError />}
+        <Languages handleOnClickEs={handleOnClickEs} handleOnClickEn={handleOnClickEn} />
+        <Switch>
+          <Route exact path={home} component={Paragraph} />
+          <Route path={myLocation} component={ContainerCurrentData} />
+          <Route path={nameCity} component={ContainerCity} />
+        </Switch>
       </div>
     </div>
+
+  )
+}
+
+function App() {
+
+
+
+  return (
+    <Suspense fallback='Cargando Traducciones ....'>
+      <ContainerApp />
+    </Suspense>
   );
 }
 

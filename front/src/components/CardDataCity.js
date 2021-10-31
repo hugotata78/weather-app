@@ -1,18 +1,20 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
-import { useDispatch } from 'react-redux'
-import { returnInitialState } from '../redux/actions'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router'
 
+const CardDataCity = ({data}) => {
 
-const CardDataCity = ({ data }) => {
-
-    const dispatch = useDispatch()
-
+    
+    const [t] = useTranslation(['card'])
+    const history = useHistory()
     const handleClick = e => {
         e.preventDefault()
-        dispatch(returnInitialState())
+        history.push('/')
     }
+
+    
     return (
         <div className="card">
 
@@ -24,18 +26,19 @@ const CardDataCity = ({ data }) => {
             <div className="content">
                 <div className='weather'>
                     <h3>{data.weather[0].description}</h3>
-                    <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt={data.weather[0].description}/>
+                    <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt={data.weather[0].description} />
                 </div>
-                <p> Temp: {data.main.temp}</p>
-                <p> Pressure: {data.main.pressure}</p>
-                <p>Humidity: {data.main.humidity}</p>
-                <p>Visibility: {data.visibility}</p>
-                <p>Wind: speed {data.wind.speed}</p>
+                <p>{t('temp')}: {data.main.temp}</p>
+                <p> {t('pressure')}: {data.main.pressure}</p>
+                <p>{t('humidity')}: {data.main.humidity}</p>
+                <p>{t('visibility')}: {data.visibility}</p>
+                <p>{t('winds')}: {t('speed')} {data.wind.speed}</p>
+
                 <button
                     className="button background-top-row"
                     onClick={e => handleClick(e)}
                 >
-                    Close
+                    {t('close')}
                 </button>
             </div>
 

@@ -1,14 +1,16 @@
 import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Paragraph = () => {
+    const [t] = useTranslation(['paragraph'])
     return (
         <div className='paragraph'>
             <FontAwesomeIcon icon={faCloudSun}/>
             <h2>Weather App</h2>
             <p>
-                If you want to obtain weather data for a specific city, enter the name in the search field and press the button, found towards the upper right corner, search to make the query. On the other hand, if you want to obtain weather data from your current location, press the button in the upper left corner to obtain the same data.
+                {t('content')}
             </p>
         </div>
     )

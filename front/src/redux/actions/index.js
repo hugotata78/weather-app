@@ -8,11 +8,11 @@ export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR'
 export const RETURN_INITIAL_STATE = 'RETURN_INITIAL_STATE'
 export const GET_FORECAST_EXTENDED = 'GET_FORECAST_EXTENDED'
 
-
-export const getCurrentWeatherData = (lat,lon)=>{
+export const getCurrentWeatherData = (lat,lon,lang)=>{
     return async (dispatch)=>{
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`)
+            dispatch(fetchDataRequest())
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=${lang}&units=metric&appid=${apiKey}`)
             dispatch({
                 type:GET_CURRENT_WEATHER_DATA,
                 payload:response.data
@@ -22,6 +22,7 @@ export const getCurrentWeatherData = (lat,lon)=>{
         }
     }
 }
+
 
 export const fetchDataRequest = ()=>{
     return {
@@ -47,11 +48,11 @@ export const returnInitialState = ()=>{
         type: RETURN_INITIAL_STATE
     }
 }
-export const getWeatherByCity = (city)=>{
+export const getWeatherByCity = (city,lang)=>{
     return async (dispatch)=>{
         try {
             dispatch(fetchDataRequest())
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=metric&appid=${apiKey}`)
             dispatch(fetchDataSuccess(response.data))
         } catch (error) {
             dispatch(fetchDataError())

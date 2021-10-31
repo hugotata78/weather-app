@@ -1,0 +1,9 @@
+{
+    "temp":"Temperature",
+    "pressure":"Pressure",
+    "humidity":"Humidity",
+    "visibility":"Visibility",
+    "winds":"Winds",
+    "speed":"speed",
+    "close":"Close"
+}
