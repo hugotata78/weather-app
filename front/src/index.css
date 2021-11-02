@@ -27,15 +27,16 @@ body{
 .main{
   display: flex;
   flex-direction: column;
-  height: auto;
-  max-height: 700px;
+  justify-content: center;
+  height: 100%;
 }
 .container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
+  max-height: 100vh;
   top:0;
   left: 0;
 }
@@ -45,7 +46,7 @@ body{
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 30px auto;
   height: auto;
   overflow: hidden;
   width: 15rem;
@@ -127,35 +128,21 @@ body{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
-  position: fixed;
+  padding: 5px 10px;
 }
-
-.nav-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
 
 .title{
-  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.search-form{
-  height: 100%;
-  padding: auto;
-}
-
-.search-form nav{
+form{
   width: 100%;
   max-width: 15rem;
-  height: auto;
   border: 1px solid white;
   border-radius: 20px;
 }
-.search-form nav input{
+form input{
   width: 200px;
   padding: 10px;
   margin: 1px;
@@ -178,31 +165,10 @@ body{
   transition: all .3s ease-in-out;
 }
 
-.btn-glob{
-  font-size: 22px;
-  padding: 13px 0 13px 10px;
-  margin: 1px auto;
-  background: transparent;
-  border-collapse: collapse;
-  border-radius: 20px;
-  color: white;
-  cursor: pointer;
-  transition: all .3s ease-in-out;
+.label-icon{
+  display: none;
 }
 
-.form-select{
-  padding:5px 1px;
-  margin: 1px;
-  background: transparent;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: all .3s ease-in-out;
-  outline: none;
-}
-option{
-  color: #000;
-}
 
 .btn{
   padding: 10px;
@@ -215,21 +181,75 @@ option{
   transition: all .3s ease-in-out;
 }
 
+.btn-sub-menu{
+  padding: 10px;
+  margin:0 2px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
 .btn:hover{
   background: rgb(6, 76, 78);
 } 
 
+.btn-sub-menu:hover{
+  background: rgb(6, 76, 78);
+} 
+
+.sub-menu-block{
+  display: block;
+  width: 110px;
+  margin-top:15px;
+  padding: 5px 0;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+  position: absolute;
+}
 .text-menu{
   margin: 0 5px;
+}
+
+.sub-menu-none{
+  display: none;
+  margin-top: 15px;
+  padding: 5px 0;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+}
+
+li{
+  list-style: none;
+}
+.sub-menu-block li, .sub-menu-none li{
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.sub-menu-block li:hover, .sub-menu-none li:hover{
+  background: rgb(6, 76, 78);;
+}
+
+.sub-menu-block li a, .sub-menu-none li a{
+  color: white;
+  cursor: pointer;
 }
 
 .paragraph{
   width: 100%;
   max-width: 500px;
-  margin: 100px auto;
+  height: auto;
+  margin:100px auto;
   color: antiquewhite;
   text-align: center;
-  padding:30px;
+  padding:10px;
 }
 
 .paragraph h2{
@@ -260,37 +280,10 @@ option{
   animation: turn 1.5s linear infinite;
 }
 
-.languages{
-  width: 100%;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-.container-flags{
-  width: 200px;
+.title-2{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-flags a{
-  width: 40px;
-  margin: 10px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.container-flags a img{
-  width: 100%;
-  border-radius: 50%;
-  
-}
-
+} 
 @keyframes turn {
   from{ transform: rotate(0deg);}
   to{ transform: rotate(360deg);}
@@ -298,41 +291,77 @@ option{
 
 
 /* media queries */
-@media (max-width:1024){
-  .container{
-    margin-top: 150px;
-    margin-bottom: 150;
-  }
-}
+
 @media (max-width:550px){
   .container{
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       height: 100%;
-      margin-top: 120px;
-      margin-bottom: 150px;
-  }
-  .card{
-    margin: .5rem;
   }
 
   .content{
     display: flex;
     flex-direction: column;
   }
-  .text-menu{
-    display: none;
+  
+  .navBar{
+    flex-direction: column;
   }
   
-  .search-form nav input{
-    width: auto;
-    max-width: 130px;
+  .paragraph{
+    margin-top: 0;
+    margin-bottom: 100px;
   }
-}
-@media (max-width:300px){
-  .search-form nav input{
-    width: auto;
-    max-width: 100px;
+  .card{
+    margin-top: 30px;
+    margin-bottom: 100px;
   }
+  .label-icon{
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    background: transparent;
+    font-size: 22px;
+  }
+  .title{
+    display: none;
+  }
+  .title-2{
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: all 0.5s;
+    background-color: rgba(51, 51, 51, 0.9);
+    z-index: 100;
+  }
+  .title-2 li{
+    margin:0 2px;
+    border-bottom: 1px solid white;
+    padding: 10px;
+  }
+
+  .title-2 li:hover{
+    background: rgba(255, 255, 255, 0.3);
+    
+  }
+  .title-2 li .btn, .title-2 li .btn-sub-menu{
+    margin: 5px 10px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .sub-menu-block{
+    width: 100%;
+    border: none;
+  }
+  .sub-menu-block li{
+    border: none;
+  }
+  form input{
+    width: auto;
+  }
+
+  
 }

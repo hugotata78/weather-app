@@ -1,9 +1,10 @@
 {
     "home": "Home",
-    "current": "Current Location Data",
+    "current": "My Location",
     "search":"Search... ",
     "spanish":"Spanish",
     "english":"English",
     "languages":"Languages",
-    "msg-error":"Enter data to make the query"
+    "msg-error":"Enter data to make the query",
+    "my-location":"/my-location"
 }

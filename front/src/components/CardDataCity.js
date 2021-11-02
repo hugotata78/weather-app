@@ -7,11 +7,12 @@ import { useHistory } from 'react-router'
 const CardDataCity = ({data}) => {
 
     
-    const [t] = useTranslation(['card'])
+    const [t,i18n] = useTranslation(['card'])
     const history = useHistory()
     const handleClick = e => {
         e.preventDefault()
         history.push('/')
+        i18n.changeLanguage('es')
     }
 
     

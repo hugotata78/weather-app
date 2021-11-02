@@ -4,12 +4,13 @@ import { useHistory } from "react-router";
 
 const CardError = () => {
 
-    const [t] = useTranslation(['error'])
+    const [t,i18n] = useTranslation(['error'])
     const history = useHistory()
     
     const handleClick = e => {
         e.preventDefault()
         history.push('/')
+        i18n.changeLanguage('es')
     }
     return (
         <div className='card'>

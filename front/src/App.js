@@ -9,6 +9,7 @@ import { Languages } from './components/Languages';
 import { Route, Switch, useHistory } from 'react-router';
 import { ContainerCity } from './page/containerCity';
 import { ContainerCurrentData } from './page/containerCurrentdata';
+import { NavBar } from './components/NavBar';
 
 
 
@@ -18,14 +19,11 @@ const ContainerApp = () => {
   const [city, setCity] = useState('')
   const history = useHistory()
 
-  const home = '/' || '/?lang=es' || '/?lang=en'
-  const myLocation = '/my-location' || '/my-location?lang=es' || '/my-location?lang=en'
-  const nameCity = '/:city' || '/:city?lang=es' || '/:city?lang=en'
-
   const handleChage = (e) => {
     setCity(e.target.value)
   }
 
+  console.log(window.location.pathname)
   const onSearch = (e) => {
     e.preventDefault()
     if (city === '') {
@@ -47,18 +45,18 @@ const ContainerApp = () => {
     i18n.changeLanguage('es')
   }
 
-  
+
 
   const handleOnClickEs = (e) => {
     e.preventDefault()
     i18n.changeLanguage('es')
-    history.push(`${window.location.pathname}?lang=es`)
+    
   }
 
   const handleOnClickEn = (e) => {
     e.preventDefault()
     i18n.changeLanguage('en')
-    history.push(`${window.location.pathname}?lang=en`)
+    
   }
 
   return (
@@ -68,14 +66,14 @@ const ContainerApp = () => {
         onSearch={onSearch}
         getInfoMyLocation={getInfoMyLocation}
         handleChage={handleChage}
-        handleOnClick={handleOnClick}
+        handleOnClickEn={handleOnClickEn}
+        handleOnClickEs={handleOnClickEs}
       />
       <div className="container">
-        <Languages handleOnClickEs={handleOnClickEs} handleOnClickEn={handleOnClickEn} />
         <Switch>
-          <Route exact path={home} component={Paragraph} />
-          <Route path={myLocation} component={ContainerCurrentData} />
-          <Route path={nameCity} component={ContainerCity} />
+          <Route exact path='/' component={Paragraph} />
+          <Route path='/my-location' component={ContainerCurrentData} />
+          <Route path='/:city' component={ContainerCity} />
         </Switch>
       </div>
     </div>

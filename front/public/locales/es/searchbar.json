@@ -1,9 +1,9 @@
 {
     "home": "Inicio",
-    "current": "Datos Ubicación Actual",
-    "search":"Buscar... ",
+    "current": "Mi Ubicación",
     "spanish":"Español",
     "english":"Inglés",
     "languages":"Idiomas",
-    "msg-error":"Ingrese datos para realizar la consulta"
+    "msg-error":"Ingrese datos para realizar la consulta",
+    "my-location":"/mi-ubicación"
 }
