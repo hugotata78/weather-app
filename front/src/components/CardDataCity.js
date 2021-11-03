@@ -29,11 +29,12 @@ const CardDataCity = ({data}) => {
                     <h3>{data.weather[0].description}</h3>
                     <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt={data.weather[0].description} />
                 </div>
-                <p>{t('temp')}: {data.main.temp}</p>
-                <p> {t('pressure')}: {data.main.pressure}</p>
-                <p>{t('humidity')}: {data.main.humidity}</p>
-                <p>{t('visibility')}: {data.visibility}</p>
-                <p>{t('winds')}: {t('speed')} {data.wind.speed}</p>
+                <p>{`${t('temp')}: ${data.main.temp} °C`}</p>
+                <p> {`${t('pressure')}: ${data.main.pressure} hPa`}</p>
+                <p>{`${t('humidity')}: ${data.main.humidity}%`}</p>
+                <p>{`${t('visibility')}: ${data.visibility} mts`}</p>
+                <p>{`${t('winds')}: ${t('speed')} ${data.wind.speed} m/s`}</p>
+                <p>{`${(t('clouds'))}: ${data.clouds.all}%`}</p>
 
                 <button
                     className="button background-top-row"
