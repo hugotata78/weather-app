@@ -8,7 +8,7 @@ export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR'
 export const RETURN_INITIAL_STATE = 'RETURN_INITIAL_STATE'
 export const GET_FORECAST_EXTENDED = 'GET_FORECAST_EXTENDED'
 
-export const getCurrentWeatherData = (lat,lon,lang)=>{
+export const getCurrentWeatherData = (lat,lon,lang='es')=>{
     return async (dispatch)=>{
         try {
             dispatch(fetchDataRequest())
@@ -48,7 +48,7 @@ export const returnInitialState = ()=>{
         type: RETURN_INITIAL_STATE
     }
 }
-export const getWeatherByCity = (city,lang)=>{
+export const getWeatherByCity = (city,lang='es')=>{
     return async (dispatch)=>{
         try {
             dispatch(fetchDataRequest())

@@ -9,4 +9,6 @@ i18n
     .use(Backend)
     .use(LanguagesDetector)
     .use(initReactI18next)
-    .init()
+    .init({
+        fallbackLng:'es'
+    })

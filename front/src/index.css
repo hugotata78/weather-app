@@ -216,28 +216,23 @@ form input{
 
 .sub-menu-none{
   display: none;
-  margin-top: 15px;
-  padding: 5px 0;
-  background: transparent;
-  border: 1px solid white;
-  border-radius: 5px;
-  transition: all .3s ease-in-out;
+
 }
 
 li{
   list-style: none;
 }
-.sub-menu-block li, .sub-menu-none li{
+.sub-menu-block li{
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 5px;
 }
 
-.sub-menu-block li:hover, .sub-menu-none li:hover{
+.sub-menu-block li:hover{
   background: rgb(6, 76, 78);;
 }
 
-.sub-menu-block li a, .sub-menu-none li a{
+.sub-menu-block li a{
   color: white;
   cursor: pointer;
 }
@@ -359,8 +354,12 @@ li{
   .sub-menu-block li{
     border: none;
   }
-  form input{
-    width: auto;
+  form{
+    width: 100%;
+  }
+
+  form input, .btn-nav{
+    padding: 5px;
   }
 
   

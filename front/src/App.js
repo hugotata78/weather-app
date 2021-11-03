@@ -5,11 +5,10 @@ import Paragraph from './components/Paragraph';
 import Swal from 'sweetalert2'
 import { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Languages } from './components/Languages';
 import { Route, Switch, useHistory } from 'react-router';
 import { ContainerCity } from './page/containerCity';
 import { ContainerCurrentData } from './page/containerCurrentdata';
-import { NavBar } from './components/NavBar';
+
 
 
 
@@ -61,7 +60,9 @@ const ContainerApp = () => {
 
   return (
 
-    <div className='main'>
+    <div className='main'
+    onClick={console.log('hiciste click')}
+    >
       <SearchBar
         onSearch={onSearch}
         getInfoMyLocation={getInfoMyLocation}

@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentWeatherData } from "../redux/actions";
 
 const Paragraph = () => {
-    const [t,i18n] = useTranslation(['paragraph'])
+    const [t, i18n] = useTranslation(['paragraph'])
     const dispatch = useDispatch()
     const current_data = useSelector(state => state.weatherReducers.current_data)
-    
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords
@@ -22,9 +22,15 @@ const Paragraph = () => {
     return (
         <div className='paragraph'>
             <div className='w-data'>
-                <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt={description} />
+                {
+                    current_data &&
+                    <img
+                        src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+                        alt={description}
+                    />
+                }
                 <h3>{current_data && current_data.weather[0].description}</h3>
-                <h4>{current_data && current_data.main.temp}°</h4>
+                <h4>{current_data && `${current_data.main.temp}°`}</h4>
             </div>
             <h2>Weather App</h2>
             <p>

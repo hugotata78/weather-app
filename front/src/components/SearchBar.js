@@ -50,63 +50,63 @@ const SearchBar = ({ onSearch, getInfoMyLocation, handleChage }) => {
         <div>
             <button className='label-icon' onClick={changeClsTitle}><FontAwesomeIcon icon={faBars} /></button>
             <div className='navBar'>
-            <ul className={classTitle}>
-                <li>
-                    <Link to='/'
-                        className='btn'
-                        onClick={changeClsTitle}
+                <ul className={classTitle}>
+                    <li>
+                        <Link to='/'
+                            className='btn'
+                            onClick={changeClsTitle}
+                        >
+                            <FontAwesomeIcon icon={faHouseUser} title={t('home')} />
+                            <span className='text-menu'>{t('home')}</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/my-location'
+                            className='btn'
+                            onClick={changeClsTitle}
+                        >
+                            <FontAwesomeIcon icon={faMapMarkerAlt} title={t('current')} />
+                            <span className='text-menu'>{t('current')}</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            className='btn-sub-menu'
+                            onClick={changeSubMenu}
+                        >
+                            <FontAwesomeIcon icon={faGlobe} title={t('language')} />
+                            <span className='text-menu'>{lang}</span>
+                            <FontAwesomeIcon icon={faCaretDown} />
+                        </Link>
+                        <ul className={subMenu}>
+                            <li>
+                                <Link onClick={handleOnClickEs}>
+                                    {t('spanish')}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link onClick={handleOnClickEn}>
+                                    {t('english')}
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form>
+                    <input
+                        type='search'
+                        placeholder={t('search')}
+                        onChange={e => handleChage(e)}
+                    />
+                    <button
+                        className='btn-nav'
+                        onClick={e => onSearch(e)}
                     >
-                        <FontAwesomeIcon icon={faHouseUser} title={t('home')} />
-                        <span className='text-menu'>{t('home')}</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/my-location'
-                        className='btn'
-                        onClick={changeClsTitle}
-                    >
-                        <FontAwesomeIcon icon={faMapMarkerAlt} title={t('current')} />
-                        <span className='text-menu'>{t('current')}</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        className='btn-sub-menu'
-                        onClick={changeSubMenu}
-                    >
-                        <FontAwesomeIcon icon={faGlobe} title={t('language')} />
-                        <span className='text-menu'>{lang}</span>
-                        <FontAwesomeIcon icon={faCaretDown} />
-                    </Link>
-                    <ul className={subMenu}>
-                        <li>
-                            <Link onClick={handleOnClickEs}>
-                                {t('spanish')}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link onClick={handleOnClickEn}>
-                                {t('english')}
-                            </Link>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <form>
-                <input
-                    type='search'
-                    placeholder={t('search')}
-                    onChange={e => handleChage(e)}
-                />
-                <button
-                    className='btn-nav'
-                    onClick={e => onSearch(e)}
-                >
-                    <FontAwesomeIcon icon={faSearch} title={t('search')} />
-                </button>
-            </form>
+                        <FontAwesomeIcon icon={faSearch} title={t('search')} />
+                    </button>
+                </form>
 
-        </div>
+            </div>
         </div>
     )
 }
