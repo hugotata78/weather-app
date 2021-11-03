@@ -10,5 +10,5 @@ i18n
     .use(LanguagesDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng:'es'
+        fallbackLng:'en'
     })
