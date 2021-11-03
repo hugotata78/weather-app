@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const apiKey = 'a300470270caeaa4b07d6bfb078bf57a'
+
 export const GET_CURRENT_WEATHER_DATA = 'GET_CURRENT_WEATHER_DATA'
 export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST'
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
